@@ -1,1 +1,26 @@
+Условие: задачи пользователя, у которых title содержит подстроку (без учёта регистра). Пример: user_id=5, параметр 
+"и"
+ → [2, 5] ("Циклы", "Списки"). Для неизвестного пользователя — [].
 
+Если ваш вариант другой, замените тело 
+select_tasks
+:
+
+Вариант	Параметр	Реализация (после отбора userId == user_id)
+1	нет	вернуть все
+2	нет	task["completed"]
+3	нет	not task["completed"]
+4	int	task["id"] > parameter
+5	int	task["id"] <= parameter
+6	нет	task["id"] % 2 == 0
+7	нет	task["id"] % 2 == 1
+8	str	
+parameter.strip().lower() in task["title"].lower()
+9	str	task["title"].lower().startswith(parameter.strip().lower())
+10	int	len(task["title"]) >= parameter
+11	int	task["completed"] and task["id"] > parameter
+12	int	task["completed"] and task["id"] <= parameter
+13	int	not task["completed"] and task["id"] > parameter
+14	int	not task["completed"] and len(task["title"]) >= parameter
+15	str	task["completed"] and parameter.strip().lower() in task["title
+"].lower()
